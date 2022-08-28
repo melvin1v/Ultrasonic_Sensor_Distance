@@ -4,11 +4,9 @@ const int echoPin = 10;
 const int ledPin = 11;
 float pulse_width, distance;
 
-#include <Servo.h>
 
-Servo myservo;  // create servo object to control a servo
 
-int pos = 0;    // variable to store the servo position
+
 
 
 void setup() {
@@ -16,7 +14,6 @@ void setup() {
   pinMode(triggerPin, OUTPUT);
   pinMode(echoPin, INPUT);
   pinMode(ledPin, OUTPUT);
-  myservo.attach(3);  // attaches the servo on pin 3 to the servo object
   Serial.begin(9600);
   digitalWrite(triggerPin, LOW); // Sets the triggerPin Low or essentilly resets it. 
   delayMicroseconds(2); // Waits two seconds before going into the loop. 
@@ -40,11 +37,10 @@ void loop() {
   Serial.print(" cm.\n");
   if (distance <= 10 or distance == 400) {
     digitalWrite(ledPin, HIGH);
-    //myservo.write(0);              
+        
   }
   else {
     digitalWrite(ledPin, LOW);
-    //myservo.write(112);
   }
   delay(500);
  
